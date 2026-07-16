@@ -12,12 +12,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Schedule
-import androidx.compose.material.icons.filled.TouchApp
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -30,13 +28,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import edu.ucne.exampledatastore.ui.theme.ExampleDataStoreTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppStatsScreen(
     state: AppStatsUiState,
-    onRecordOpen: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -47,13 +43,6 @@ fun AppStatsScreen(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface
                 )
-            )
-        },
-        floatingActionButton = {
-            ExtendedFloatingActionButton(
-                text = { Text("Registrar apertura") },
-                icon = { Icon(Icons.Filled.TouchApp, contentDescription = null) },
-                onClick = onRecordOpen
             )
         }
     ) { innerPadding ->
@@ -159,14 +148,13 @@ private fun LastOpenedCard(formattedDate: String, modifier: Modifier = Modifier)
 @Preview(showBackground = true)
 @Composable
 fun AppStatsScreenPreview() {
-    ExampleDataStoreTheme {
+    MaterialTheme {
         AppStatsScreen(
             state = AppStatsUiState(
                 openCount = 3,
                 formattedLastOpenedDate = "14/07/2026 a las 10:00:00",
                 isLoading = false
-            ),
-            onRecordOpen = {}
+            )
         )
     }
 }
@@ -174,14 +162,13 @@ fun AppStatsScreenPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF1C1B1F)
 @Composable
 fun AppStatsScreenDarkPreview() {
-    ExampleDataStoreTheme() {
+    MaterialTheme {
         AppStatsScreen(
             state = AppStatsUiState(
                 openCount = 12,
                 formattedLastOpenedDate = "14/07/2026 a las 21:47:09",
                 isLoading = false
-            ),
-            onRecordOpen = {}
+            )
         )
     }
 }
