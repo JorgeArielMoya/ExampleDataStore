@@ -7,11 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import edu.ucne.exampledatastore.presentation.appstats.AppStatsScreen
 import edu.ucne.exampledatastore.presentation.appstats.AppStatsUiEvent
 import edu.ucne.exampledatastore.presentation.appstats.AppStatsViewModel
 import edu.ucne.exampledatastore.ui.theme.ExampleDataStoreTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
