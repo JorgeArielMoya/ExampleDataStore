@@ -24,7 +24,6 @@ class AppStatsViewModel @Inject constructor(
 
     init {
         observeStats()
-        recordAppOpen()
     }
 
     private fun observeStats() {
@@ -41,19 +40,9 @@ class AppStatsViewModel @Inject constructor(
         }
     }
 
-    private fun recordAppOpen() {
+    fun recordAppLeave() {
         viewModelScope.launch {
             repository.recordAppOpen(System.currentTimeMillis())
-        }
-    }
-
-    fun processIntent(event: AppStatsUiEvent) {
-        when (event) {
-            is AppStatsUiEvent.RecordAppOpen -> {
-                viewModelScope.launch {
-                    repository.recordAppOpen(System.currentTimeMillis())
-                }
-            }
         }
     }
 
