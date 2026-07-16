@@ -16,6 +16,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import dagger.hilt.android.AndroidEntryPoint
 import edu.ucne.exampledatastore.presentation.appstats.AppStatsScreen
 import edu.ucne.exampledatastore.presentation.appstats.AppStatsViewModel
+import edu.ucne.exampledatastore.ui.theme.ExampleDataStoreTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MaterialTheme {
+            ExampleDataStoreTheme{
                 val viewModel: AppStatsViewModel = hiltViewModel()
                 val state by viewModel.state.collectAsState()
                 val currentViewModel by rememberUpdatedState(viewModel)

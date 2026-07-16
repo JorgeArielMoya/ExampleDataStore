@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import edu.ucne.exampledatastore.ui.theme.ExampleDataStoreTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -148,7 +149,7 @@ private fun LastOpenedCard(formattedDate: String, modifier: Modifier = Modifier)
 @Preview(showBackground = true)
 @Composable
 fun AppStatsScreenPreview() {
-    MaterialTheme {
+    ExampleDataStoreTheme {
         AppStatsScreen(
             state = AppStatsUiState(
                 openCount = 3,
@@ -162,7 +163,7 @@ fun AppStatsScreenPreview() {
 @Preview(showBackground = true, backgroundColor = 0xFF1C1B1F)
 @Composable
 fun AppStatsScreenDarkPreview() {
-    MaterialTheme {
+    ExampleDataStoreTheme {
         AppStatsScreen(
             state = AppStatsUiState(
                 openCount = 12,
